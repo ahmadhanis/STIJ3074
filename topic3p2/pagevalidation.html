@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function validate() {
+            if ((document.example2.naming.value == "") || (document.example2.feed.value == "")) {
+                alert("You must fill in all of the required fields!");
+                return false;
+            }else{
+                alert("Correct!!!");
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="example2" onsubmit="return validate()" action="processForm.php">
+        <strong>Enter your name (*required)</strong><br>
+        <input type="text" size="20" name="naming">
+        <p>
+            <strong>Feedback please: (*required)</strong><br>
+            <textarea name="feed" rows="3" cols="25"></textarea>
+        <p>
+            <strong>Your home address (*NOT required)</strong><br>
+            <input type="text" size="35" name="address"><br>
+            <input type="submit" name="B1" value="Submit">
+    </form>
+
+</body>
+
+</html>

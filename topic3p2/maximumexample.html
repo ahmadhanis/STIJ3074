@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Maximum Value</title>
+    
+    <script type="text/javascript">
+        var input1 = window.prompt("Enter First Value","");
+        var input2 = window.prompt("Enter Second Value","");
+        var input3 = window.prompt("Enter Third Value","");
+        
+        var number1 = parseFloat(input1);
+        var number2 = parseFloat(input2);
+        var number3 = parseFloat(input3);
+
+        var maxValue = getMaximum(number1, number2, number3);
+        document.write("<br><p> Input 1 "+number1+"<br> Input 2 "+number2+"<br> Input 3 "+number3+"</p><br> Maximum is "+maxValue);
+
+        function getMaximum(x,y,z){
+            return Math.max(x,y,z);
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

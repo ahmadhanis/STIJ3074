@@ -1,6 +1,8 @@
 <?php
 include_once("dbconnect.php");
 
+if (isset($_COOKIE["timer"])){
+
 //get data first
 $name = $_POST['name'];
 $email = $_POST['email']; 
@@ -22,5 +24,8 @@ try {
   }
   
   $conn = null;
-
+}else{
+  echo "<script> alert('Timer expired!!!')</script>";
+  echo "<script> window.location.replace('index.html') </script>;";
+}
 ?>

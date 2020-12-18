@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2020 at 07:57 AM
+-- Generation Time: Dec 18, 2020 at 02:19 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -41,11 +41,10 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `courseid`, `coursename`, `gred`, `sem`, `matric`) VALUES
-(2, 'STIA1012', 'Programming 2', 'A-', 'A192', '12345'),
-(3, 'BJIW1002', 'Pengenalan Komunikasi', 'B', 'A191', '12345'),
-(5, 'STIJ2024', 'Data Structure', 'A', 'A192', '12345'),
 (7, 'STIA1011', 'Programming 1', 'B+', 'A191', '43212'),
-(8, 'BJIW1002', 'Pengenalan Komunikasi', 'B', 'A192', '43212');
+(8, 'BJIW1002', 'Pengenalan Komunikasi', 'B', 'A192', '43212'),
+(25, 'STIA1013', 'Programming 1', 'B+', 'A182', '12345'),
+(27, 'STIJ1013', 'Introduction to Computer Network', 'A', 'A182', '12345');
 
 -- --------------------------------------------------------
 
@@ -66,7 +65,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`name`, `email`, `password`, `matric`, `timereg`) VALUES
+('Ali', 'ali@gmail.com', '6367c48dd193d56ea7b0baad25b19455e529f5ee', '34534', '2020-12-13 09:58:33.166761'),
+('Chong', 'chong@gmail.com', '6367c48dd193d56ea7b0baad25b19455e529f5ee', '34345', '2020-12-13 10:01:43.844888'),
 ('Ahmad Hanis Shabli', 'hanis@gmail.com', '6367c48dd193d56ea7b0baad25b19455e529f5ee', '12345', '2020-11-25 09:24:11.524433'),
+('John Mcain', 'johnm@gmail.com', '6367c48dd193d56ea7b0baad25b19455e529f5ee', '54542', '2020-12-13 09:54:48.818128'),
 ('Ahmad Hanis Shabli', 'slumberjer@gmail.com', '6367c48dd193d56ea7b0baad25b19455e529f5ee', '43212', '2020-11-25 09:52:03.379124');
 
 --
@@ -94,7 +96,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

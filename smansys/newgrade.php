@@ -3,6 +3,10 @@ include_once("dbconnect.php");
 $matric = $_GET['matric'];
 $name = $_GET['name'];
 
+// if (isset($_COOKIE["email"])){
+//   echo "Value is: " . $_COOKIE["email"];
+// }
+
 if (isset($_GET['courseid'])) {
   $courseid = $_GET['courseid'];
   $coursename = $_GET['coursename'];
@@ -41,7 +45,7 @@ if (isset($_GET['courseid'])) {
 <body>
     <h2 align="center">Insert New Grade</h2>
 
-    <form action="newgrade.php" method="get" align="center">
+    <form action="newgrade.php" method="get" align="center" onsubmit="return confirm('Insert new grade?');">
         <input type="hidden" id="name" name="name" value="<?php echo $name;?>"><br>
         <input type="hidden" id="matric" name="matric" value="<?php echo $matric;?>"><br>
         <label for="Course ID">Course ID:</label><br>

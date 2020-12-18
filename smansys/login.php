@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("dbconnect.php");
 
 $email = $_POST['email']; 
@@ -19,6 +20,16 @@ try {
             $matric = $user['matric'];
             $name = $user['name'];
         } 
+        setcookie("timer", "10s", time()+100000,"/");
+
+        $_SESSION["name"] = $name;
+        $_SESSION["email"] = $email;
+        $_SESSION["password"] = $password;
+
+        //setcookie("email", $email, time()+60,"/");
+        //setcookie("matric", $matric, time()+60,"/");
+        //setcookie("name", $name, time()+60,"/");
+        
         echo "<script> alert('Login Success')</script>";
         echo "<script> window.location.replace('mainpage.php?matric=".$matric."&name=".$name."') </script>;";
     }else{

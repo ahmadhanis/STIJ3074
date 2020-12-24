@@ -7,7 +7,8 @@ $name = $_GET['name'];
 // if (isset($_COOKIE["email"])){
 //   echo "Value is: " . $_COOKIE["email"];
 // }
-echo "Welcome " . $_SESSION["name"] . ".<br>";
+echo "<head></head><link rel='stylesheet' href='styles.css'></head>";
+echo "<p>Welcome " . $_SESSION["name"] . ".<br></p>";
 if (isset($_SESSION["name"])){
 
 //delete operation
@@ -75,6 +76,7 @@ if (isset($_COOKIE["timer"])){
 <html lang="en">
 
 <head>
+<link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>

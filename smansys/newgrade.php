@@ -6,6 +6,7 @@ $name = $_GET['name'];
 // if (isset($_COOKIE["email"])){
 //   echo "Value is: " . $_COOKIE["email"];
 // }
+echo "<head></head><link rel='stylesheet' href='styles.css'></head>";
 
 if (isset($_GET['courseid'])) {
   $courseid = $_GET['courseid'];
@@ -56,7 +57,7 @@ if (isset($_GET['courseid'])) {
         <input type="text" id="grade" name="grade" value="" required><br>
         <label for="password">Semester</label><br>
         <input type="text" id="semester" name="semester" value="" required><br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="button">
     </form>
     <p align="center"><a href="mainpage.php?matric=<?php echo $matric.'&name='.$name?>">Cancel</a></p>
 </body>

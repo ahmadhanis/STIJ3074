@@ -1,5 +1,5 @@
     body {
-      background-color: powderblue;
+      background-color: #EEF5DB;
     }
 
     h1 {
@@ -12,7 +12,7 @@
     }
 
     form {
-      background-color: aquamarine;
+      background-color: #F0B67F;
     }
 
     table {
@@ -34,7 +34,7 @@
     .button {
       display: inline-block;
       border-radius: 4px;
-      background-color: #f4511e;
+      background-color: #FE5F55;
       border: none;
       color: #FFFFFF;
       text-align: center;

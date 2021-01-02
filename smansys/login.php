@@ -20,7 +20,7 @@ try {
             $matric = $user['matric'];
             $name = $user['name'];
         } 
-        setcookie("timer", "10s", time()+100000,"/");
+        setcookie("timer", "10s", time()+10000000,"/");
 
         $_SESSION["name"] = $name;
         $_SESSION["email"] = $email;

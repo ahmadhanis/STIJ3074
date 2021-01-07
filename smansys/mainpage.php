@@ -7,7 +7,8 @@ $name = $_GET['name'];
 // if (isset($_COOKIE["email"])){
 //   echo "Value is: " . $_COOKIE["email"];
 // }
-echo "<head></head><link rel='stylesheet' href='styles.css'></head>";
+echo "<head><link rel='stylesheet' href='styles.css'><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\"></head>";
+
 echo "<p>Welcome " . $_SESSION["name"] . ".<br></p>";
 if (isset($_SESSION["name"])){
 
@@ -25,14 +26,27 @@ if (isset($_COOKIE["timer"])){
     }
 
     try {
-
-        $sql = "SELECT * FROM courses WHERE matric = '$matric' ORDER BY sem ASC";
+        if (isset($_GET['subject'])) {
+            $subject = $_GET['subject'];
+            $sql = "SELECT * FROM courses WHERE matric = '$matric' AND coursename LIKE '%$subject%' ORDER BY sem ASC";
+        }else{
+            $sql = "SELECT * FROM courses WHERE matric = '$matric' ORDER BY sem ASC";    
+        }
+        
         $stmt = $conn->prepare($sql );
         $stmt->execute();
         // set the resulting array to associative
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $courses = $stmt->fetchAll(); 
         echo "<p><h1 align='center'>Your Current Courses</h1></p>";
+        echo "
+        <form class=\"example\" action=\"mainpage.php\" style=\"margin:auto;max-width:300px\">
+        <input type=\"text\" placeholder=\"Search by subject name..\" name=\"subject\">
+        <input type=\"hidden\" name=\"matric\" value=$matric>
+        <input type=\"hidden\" name=\"name\" value=$name>
+        <button type=\"submit\"><i class=\"fa fa-search\"></i></button>
+        </form><br>";
+        
         echo "<table border='1' align='center'>
         <tr>
           <th>Course ID</th>
@@ -54,6 +68,7 @@ if (isset($_COOKIE["timer"])){
             echo "</tr>";
         } 
         echo "</table>";
+        echo "<button onclick=\"window.print()\">Print this page</button>";
         echo "<p align='center'><a href='newgrade.php?matric=".$matric."&name=".$name."'>Insert new grade</a></p>";
         echo "<p align='center'><a href='profile.php?matric=".$matric."&name=".$name."'>Your Profile</a></p>";
         echo "<p align='center'><a href='index.html'>Login</a></p>";

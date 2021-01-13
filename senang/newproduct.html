@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+  function previewFile() {
+    const preview = document.querySelector('img');
+    const file = document.querySelector('input[type=file]').files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener("load", function () {
+      // convert image file to base64 string
+      preview.src = reader.result;
+    }, false);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+  
+  Filevalidation = () => { 
+        const fi = document.getElementById('file'); 
+        // Check if any file is selected. 
+        if (fi.files.length > 0) { 
+            for (const i = 0; i <= fi.files.length - 1; i++) { 
+  
+                const fsize = fi.files.item(i).size; 
+                const file = Math.round((fsize / 1024)); 
+                // The size of the file. 
+                if (file >= 400) { 
+                    alert( 
+                      "File too Big, please select a file less than 200kb"); 
+                } else if (file < 10) { 
+                    alert( 
+                      "File too small, please select a file greater than 20kb"); 
+                } else { 
+                   previewFile();
+                } 
+            } 
+        } 
+    } 
+</script>
+  </head>
+
+<body>
+
+  <h2 align="center">Post New Ads</h2>
+
+  <form action="insertnewproduct.php" enctype="multipart/form-data" method="post" align="center"
+    onsubmit="return confirm('Are you sure you want insert new adds?');">
+    
+    <img src="" height="200"><br>
+    <input type="file" onchange="Filevalidation();" class="button" name="uploaded_file" id="file"><br>
+    <label for="name">Your Name:</label><br>
+    <input type="text" id="name" name="name" value="" required><br>
+
+    <label for="email">Your Email:</label><br>
+    <input type="text" id="email" name="email" value="" required><br>
+    
+    <label for="phone">Phone:</label><br>
+    <input type="text" id="phone" name="phone" value="" required><br>
+
+    <label for="prname">Title:</label><br>
+    <input type="text" id="prname" name="prname" value="" required><br>
+
+    <label for="prdesc">Description:</label><br>
+    <textarea id="prdesc" name="prdesc" rows="4"></textarea><br>
+    
+    <label for="prprice">Price:</label><br>
+    <input type="text" id="prprice" name="prprice" value="" required><br>
+    
+    <label for="prtype">Type:</label><br>
+    <select id="prtype" name="prtype">
+	<option value="Car" title="Car">Car</option>
+	<option value="Motorcycle" title="Motorcycle">Motorcycle</option>
+	<option value="Bicycle" title="Bicycle">Bicycle</option>
+	<option value="Computer" title="Computer">Computer</option>
+	<option value="Phone" title="Phone">Phone</option>
+    </select><br>
+
+    <label for="prloc">Location:</label><br>
+    <select id="prloc" name="prloc">
+	<option value="Alor Setar" title="Alor Setar">Alor Setar</option>
+	<option value="Air Hitam" title="Air Hitam">Air Hitam</option>
+	<option value="Baling" title="Baling">Baling</option>
+	<option value="Bandar Bharu" title="Bandar Bharu">Bandar Bharu</option>
+	<option value="Bedong" title="Bedong">Bedong</option>
+    </select><br><br>
+    
+
+
+    <input type="submit" value="Submit" class="button">
+  </form>
+  <p align="center"><a href="index.html">Cancel</a></p>
+
+</body>
+
+</html>
